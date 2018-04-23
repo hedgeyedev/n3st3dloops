@@ -1,0 +1,51 @@
+---
+layout: default
+---
+
+<div>
+
+  <div class="nested-info">
+    <h2>What Is N3ST3DLOOPS+</h2>
+    <p>N3ST3DLOOPS stands for Nom Nom Nerds' Serious Tech Talks and Tutorials: Delivering Lively Offerings on Programming and Systems</p>
+    <p>A rather long title resulting in a rather cool acronym. We'll stick with N3ST3DLOOPS from here on.</p>
+    <p>N3ST3DLOOPS is a study group that currently intends to have 3 forms:</p>
+    <h3>Book Study Group</h3>
+    <p>This is based on the idea of Design Pattern Study Groups that were formed to study the GoF Design Patterns book.
+    See this <a href="http://www.onjava.com/pub/a/onjava/2005/04/06/designpatterns.html">link</a> to get a feel of how one might be run</p>
+    <p>We've had good experience in the past with a Design Patterns study group that went on to study other software engineering books.</p>
+    <h3>Elements</h3>
+    <ul>
+      <li>Classic Tech book</li>
+      <li> "Timeless"</li>
+      <li>Go through whole thing - rare in this day and age</li>
+      <li>Assigned reader's</li>
+      <li>Group discussion</li>
+    </ul>
+    <h3>Who We Area</h3>
+    <p>Mostly Ruby, Mostly Rails, web develompent, tools, backend Docker</p>
+  </div>
+
+  {{ content }}
+
+  <h2>Latest Posts</h2>
+
+  <div>&nbsp;</div>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+
+        {% assign date_format = site.cayman-blog.date_format | default: "%b %-d, %Y" %}
+        <span class="post-meta">{{ post.date | date: date_format }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | relative_url }}" title="{{ post.title }}">{{ post.title | escape }}</a>
+        </h2>
+
+        <span>{{ post.excerpt | markdownify | truncatewords: 30 }}</span>
+
+      </li>
+    {% endfor %}
+  </ul>
+
+</div>
